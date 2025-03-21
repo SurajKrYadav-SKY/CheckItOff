@@ -34,6 +34,16 @@ class UserService {
       throw error;
     }
   }
+
+  async getByEmail(email) {
+    try {
+      const user = await this.userRepository.getByEmail(email);
+      return user;
+    } catch (error) {
+      console.log("Something went wrong in the service layer.");
+      throw error;
+    }
+  }
 }
 
 module.exports = UserService;
