@@ -23,7 +23,7 @@ router.post("/user/:id", authenticate, update);
 
 // task
 router.post("/task", authenticate, createTask);
-router.get("/tasks", authenticate, getTasks);
+router.get("/task", authenticate, getTasks);
 router.put("/task/:id", authenticate, updateTask);
 router.delete("/task/:id", authenticate, deleteTask);
 

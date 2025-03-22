@@ -3,19 +3,22 @@ const { SECRET_KEY, SALT } = require("../config/serverConfig");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-const UserSchema = mongoose.Schema({
-  email: {
-    type: String,
-    required: [true, "Email is required"],
-    unique: true,
+const UserSchema = mongoose.Schema(
+  {
+    email: {
+      type: String,
+      required: [true, "Email is required"],
+      unique: true,
+    },
+    password: {
+      type: String,
+      required: [true, "password is required"],
+      unique: true,
+    },
+    name: String,
   },
-  password: {
-    type: String,
-    required: [true, "password is required"],
-    unique: true,
-  },
-  name: String,
-});
+  { timestamps: true }
+);
 
 UserSchema.pre("save", function (next) {
   const user = this;

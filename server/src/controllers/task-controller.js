@@ -4,7 +4,12 @@ const taskService = new TaskService();
 
 const createTask = async (req, res) => {
   try {
-    const response = await taskService.createTask({ text: req.body.text });
+    const taskData = {
+      userId: req.userId,
+      text: req.body.text,
+      completed: req.body.completed || false,
+    };
+    const response = await taskService.createTask(taskData);
     return res.status(201).json({
       data: response,
       success: true,
