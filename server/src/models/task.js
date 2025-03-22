@@ -3,8 +3,8 @@ const User = require("./user");
 
 const TaskSchema = new mongoose.Schema({
   userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-  text: String,
-  completed: Boolean,
+  text: { type: String },
+  completed: { type: Boolean, default: false },
 });
 
 const Task = mongoose.model("Task", TaskSchema);
